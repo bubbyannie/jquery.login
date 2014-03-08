@@ -1,0 +1,31 @@
+{
+  "name": "jquery.login",
+  "version": "0.0.1",
+  "main": "dist/jquery.login.js",
+  "ignore": [
+    "source",
+    "spec",
+    ".bowerrc",
+    ".gitignore",
+    ".jshintignore",
+    ".jshintrc",
+    "bower.json",
+    "gruntfile.js",
+    "package.json",
+    "README.md",
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.10.2"
+  },
+  "homepage": "https://github.com/dotkenny/jquery.login",
+  "authors": [
+    "Kenny <kenny.mcgarvey@gmail.com>"
+  ],
+  "license": "MIT"
+}
