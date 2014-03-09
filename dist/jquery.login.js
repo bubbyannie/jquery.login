@@ -10,27 +10,33 @@
 	$.fn.loginForm = function(options) {
 		var $form = this;
 
-		var $username = $form.find('[name=username]');
-		var $password = $form.find('[name=password]');
-		var $button = $form.find('[type=submit]');
+		var parameters = $.extend({
+			username: '[name=username]',
+			password: '[name=password]'
+		}, options.parameters);
 
+		$.each(parameters,function(param){
+			parameters[param] = $form.find(parameters[param]);
+		});
+
+		var $button = $form.find('[type=submit]');
 		var url = $form.attr('action') || options.url;
 		var method = $form.attr('method') || options.method || 'POST';
-		var username_field = $username.attr('name');
-		var password_field = $password.attr('name');
 
 		var signin = function(evt) {
 			evt.preventDefault();
 			$button.attr('disabled', 'disabled');
 
 			var data = {};
-			data[username_field] = $username.val();
-			data[password_field] = $password.val();
+			$.each(parameters,function(param){
+				data[param] = parameters[param].val();
+			});
 
 			var $defer = $.ajax({
 				url: url,
 				type: method,
-				data: data
+				data: data,
+				datatype: 'json'
 			});
 
 			if($.isFunction(options.success)) {
