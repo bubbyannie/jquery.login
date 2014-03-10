@@ -24,7 +24,6 @@
 		var method = $form.attr('method') || options.method || 'POST';
 
 		var signin = function(evt) {
-			evt.preventDefault();
 			$button.attr('disabled', 'disabled');
 
 			var data = {};
@@ -61,6 +60,8 @@
 		};
 
 		return $form.submit(function(evt) {
+			evt.preventDefault();
+
 			if($form.valid()) {
 				signin(evt);
 			}
