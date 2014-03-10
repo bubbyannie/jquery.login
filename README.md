@@ -45,6 +45,7 @@ $().loginForm({
     password: '[name=password]'
   },
 
+  validate: function(){}, // return true or false
   success: function(data){},
   unauthorized: function(data, msg){},
   error: function(data, msg){}
