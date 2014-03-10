@@ -5,6 +5,11 @@ A simple library for ajax login forms using jQuery.
 
 ## usage
 
+### install
+```
+bower install jquery.login
+```
+
 ### markup
 ```html
   <form action="/signin" method="POST">
