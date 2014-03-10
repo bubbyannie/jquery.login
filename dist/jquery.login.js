@@ -22,6 +22,7 @@
 		var $button = $form.find('[type=submit]');
 		var url = $form.attr('action') || options.url;
 		var method = $form.attr('method') || options.method || 'POST';
+		var validate = options.validate || $form.valid;
 
 		var signin = function(evt) {
 			$button.attr('disabled', 'disabled');
@@ -62,7 +63,7 @@
 		return $form.submit(function(evt) {
 			evt.preventDefault();
 
-			if($form.valid()) {
+			if($.isFunction(validate) && validate()) {
 				signin(evt);
 			}
 		});
